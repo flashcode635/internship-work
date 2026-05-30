@@ -4,8 +4,9 @@
   --grground: #000000;
   --container-bg: #05080a;
   --card-bg:#030509;
-  --color-card: #02bbbe;
+  --color-card: #0266be;
   --card-review: #56585c;
+  --heading: #cbb755;
 }
 
 @theme inline {

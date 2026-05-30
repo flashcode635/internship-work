@@ -127,12 +127,14 @@ export default function TestimonialsCarousel() {
   return (
     <section className="w-full bg-black py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 text-center">
-          
-          <h2 className="text-3xl font-bold text-(--text) sm:text-4xl">
-            Loved by teams worldwide
+        <div className="mb-10 text-center w-full">         
+
+          <h2 className="md:text-5xl text-3xl font-bold sm:text-4xl
+           bg-[linear-gradient(to_right,#ffffff_30%,#02bbbe_60%,#02bbbe_10%,#cbb755_77%,#cbb755_10%)] bg-clip-text text-transparent">
+              Loved by teams worldwide
           </h2>
-          <p className="mt-3 text-gray-500">
+          
+          <p className="mt-3 md:text-xl text-md text-gray-500">
             Don't just take our word for it — hear from our community.
           </p>
         </div>
