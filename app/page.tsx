@@ -1,4 +1,4 @@
-import { Testimonials } from "../components/footer";
+import { Testimonials } from "../components/testimonials";
 
 export default function Home() {
   return (
