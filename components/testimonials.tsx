@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 const testimonials: TestimonialCardProps[] = [
   {
-    name: "Sarah Mitchell",
+    name: "Sarah Mitchel",
     avatar: "https://i.pravatar.cc/150?img=1",
     rating: 5,
     text: "This tool has completely transformed how our team collaborates. The intuitive interface and lightning-fast performance make every project feel effortless.",
