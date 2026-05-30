@@ -50,7 +50,7 @@ const StarRating = ({ rating }: { rating: number }) => (
     {[...Array(5)].map((_, i) => (
       <svg
         key={i}
-        className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-gray-300"}`}
+        className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-gray-700"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -66,7 +66,7 @@ const TestimonialCard = ({
   rating,
   text,
 }: TestimonialCardProps) => (
-  <div className="flex h-full min-w-85 max-w-85 flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+  <div className="flex min-h-full min-w-85 max-w-85 flex-col gap-4 rounded-2xl border border-gray-600 bg-(--card-bg) p-6 shadow-sm">
     <div className="flex items-center gap-4">
       <img
         className="h-12 w-12 rounded-full object-cover ring-2 ring-gray-100"
@@ -74,13 +74,13 @@ const TestimonialCard = ({
         alt={name}
       />
       <div>
-        <p className="font-semibold text-gray-900">{name}</p>      
+        <p className="font-semibold text-(--color-card)">{name}</p>      
       </div>
     </div>
 
     <StarRating rating={rating} />
 
-    <p className="flex-1 text-base leading-relaxed text-gray-600">
+    <p className="flex-1 text-base leading-relaxed text-(--card-review) ">
       &ldquo;{text}&rdquo;
     </p>
   </div>
@@ -125,11 +125,11 @@ export default function TestimonialsCarousel() {
   }, []);
 
   return (
-    <section className="w-full bg-linear-to-b from-gray-50 to-white py-16">
-      <div className="mx-auto max-w-7xl px-4">
+    <section className="w-full bg-black py-16">
+      <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center">
           
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-(--text) sm:text-4xl">
             Loved by teams worldwide
           </h2>
           <p className="mt-3 text-gray-500">
@@ -140,13 +140,15 @@ export default function TestimonialsCarousel() {
         {/* Carousel viewport */}
         <div className="group relative overflow-hidden">
           {/* gradient masks */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-white to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-white to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black  
+          via-(--container-bg)
+          to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black via-(--container-bg) to-transparent" />
 
           {/* Scrolling track — duplicate items for a seamless loop */}
           <div
             ref={trackRef}
-            className="flex gap-5"
+            className="flex gap-5 md:px-3"
             style={{ width: "max-content" }}
           >
             {[...testimonials, ...testimonials].map((t, i) => (
