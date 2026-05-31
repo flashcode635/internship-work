@@ -129,7 +129,7 @@ export default function TestimonialsCarousel() {
       <div className="pointer-events-none absolute left-1/4 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
       <div className="pointer-events-none absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/4 rounded-full bg-yellow-500/15 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-14 text-center w-full relative z-10">         
 
           <h2 className="md:text-6xl text-4xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-[#00d2ff] to-[#ffd700] bg-clip-text text-transparent drop-shadow-md">
@@ -140,25 +140,23 @@ export default function TestimonialsCarousel() {
             Don't just take our word for it — hear from our community.
           </p>
         </div>
+      </div>
 
-        {/* Carousel viewport */}
-        <div className="group relative overflow-hidden">
-          {/* gradient masks */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black  
-          via-(--container-bg)
-          to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black via-(--container-bg) to-transparent" />
+      {/* Carousel viewport - outside max-w-7xl to span full screen width */}
+      <div className="group relative overflow-hidden w-full">
+        {/* gradient masks */}
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 md:w-48 bg-linear-to-r from-black to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 md:w-48 bg-linear-to-l from-black to-transparent" />
 
-          {/* Scrolling track — duplicate items for a seamless loop */}
-          <div
-            ref={trackRef}
-            className="flex gap-5 md:px-3"
-            style={{ width: "max-content" }}
-          >
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <TestimonialCard key={i} {...t} />
-            ))}
-          </div>
+        {/* Scrolling track — duplicate items for a seamless loop */}
+        <div
+          ref={trackRef}
+          className="flex gap-5 md:px-3"
+          style={{ width: "max-content" }}
+        >
+          {[...testimonials, ...testimonials].map((t, i) => (
+            <TestimonialCard key={i} {...t} />
+          ))}
         </div>
       </div>
     </section>
