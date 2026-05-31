@@ -49,8 +49,7 @@ const StarRating = ({ rating }: { rating: number }) => (
   <div className="flex gap-0.5">
     {[...Array(5)].map((_, i) => (
       <svg
-        key={i}
-        className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-gray-700"}`}
+        className={`h-4 w-4 ${i < rating ? "text-yellow-400" : "text-gray-700/50"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -66,21 +65,21 @@ const TestimonialCard = ({
   rating,
   text,
 }: TestimonialCardProps) => (
-  <div className="flex min-h-full min-w-85 max-w-85 flex-col gap-4 rounded-2xl border border-gray-600 bg-(--card-bg) p-6 shadow-sm">
+  <div className="group flex min-h-full w-[320px] md:w-[400px] flex-col gap-5 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/50 hover:bg-white/10 hover:shadow-[0_10px_40px_-10px_rgba(34,211,238,0.2)]">
     <div className="flex items-center gap-4">
       <img
-        className="h-12 w-12 rounded-full object-cover ring-2 ring-gray-100"
+        className="h-14 w-14 rounded-full object-cover ring-2 ring-white/20 transition-all duration-500 group-hover:ring-cyan-400/60"
         src={avatar}
         alt={name}
       />
       <div>
-        <p className="font-semibold text-(--color-card)">{name}</p>      
+        <p className="font-semibold text-white tracking-wide">{name}</p>      
       </div>
     </div>
 
     <StarRating rating={rating} />
 
-    <p className="flex-1 text-base leading-relaxed text-(--card-review) ">
+    <p className="flex-1 text-[17px] leading-relaxed text-gray-300/90 font-light">
       &ldquo;{text}&rdquo;
     </p>
   </div>
@@ -125,27 +124,30 @@ export default function TestimonialsCarousel() {
   }, []);
 
   return (
-    <section className="w-full bg-black py-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10 text-center w-full">         
+    <section className="relative w-full bg-black py-24 overflow-hidden">
+      {/* Background glowing blobs */}
+      <div className="pointer-events-none absolute left-1/4 top-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/20 blur-[120px]" />
+      <div className="pointer-events-none absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/4 rounded-full bg-yellow-500/15 blur-[120px]" />
 
-          <h2 className="md:text-5xl text-3xl font-bold sm:text-4xl
-           bg-[linear-gradient(to_right,#ffffff_30%,#02bbbe_60%,#02bbbe_10%,#cbb755_77%,#cbb755_10%)] bg-clip-text text-transparent">
+      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mb-14 text-center w-full relative z-10">         
+
+          <h2 className="md:text-6xl text-4xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-[#00d2ff] to-[#ffd700] bg-clip-text text-transparent drop-shadow-md">
               Loved by teams worldwide
           </h2>
           
-          <p className="mt-3 md:text-xl text-md text-gray-500">
+          <p className="mt-4 md:text-xl text-lg text-gray-400/80 font-medium">
             Don't just take our word for it — hear from our community.
           </p>
         </div>
+      </div>
 
-        {/* Carousel viewport */}
+      {/* Carousel viewport - bounded to max-w-8xl for a wider centered layout */}
+      <div className="mx-auto max-w-8xl px-4 md:px-8 w-full mt-8">
         <div className="group relative overflow-hidden">
           {/* gradient masks */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-linear-to-r from-black  
-          via-(--container-bg)
-          to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-linear-to-l from-black via-(--container-bg) to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-32 bg-linear-to-r from-black to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-32 bg-linear-to-l from-black to-transparent" />
 
           {/* Scrolling track — duplicate items for a seamless loop */}
           <div
