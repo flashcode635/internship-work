@@ -142,21 +142,23 @@ export default function TestimonialsCarousel() {
         </div>
       </div>
 
-      {/* Carousel viewport - outside max-w-7xl to span full screen width */}
-      <div className="group relative overflow-hidden w-full">
-        {/* gradient masks */}
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 md:w-48 bg-linear-to-r from-black to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 md:w-48 bg-linear-to-l from-black to-transparent" />
+      {/* Carousel viewport - bounded to max-w-8xl for a wider centered layout */}
+      <div className="mx-auto max-w-8xl px-4 md:px-8 w-full mt-8">
+        <div className="group relative overflow-hidden">
+          {/* gradient masks */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-32 bg-linear-to-r from-black to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-32 bg-linear-to-l from-black to-transparent" />
 
-        {/* Scrolling track — duplicate items for a seamless loop */}
-        <div
-          ref={trackRef}
-          className="flex gap-5 md:px-3"
-          style={{ width: "max-content" }}
-        >
-          {[...testimonials, ...testimonials].map((t, i) => (
-            <TestimonialCard key={i} {...t} />
-          ))}
+          {/* Scrolling track — duplicate items for a seamless loop */}
+          <div
+            ref={trackRef}
+            className="flex gap-5 md:px-3"
+            style={{ width: "max-content" }}
+          >
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <TestimonialCard key={i} {...t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
