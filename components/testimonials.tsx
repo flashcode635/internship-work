@@ -132,7 +132,7 @@ export default function TestimonialsCarousel() {
       <div className="relative mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-14 text-center w-full relative z-10">         
 
-          <h2 className="md:text-6xl text-4xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-[#00d2ff] to-[#ffd700] bg-clip-text text-transparent drop-shadow-md">
+          <h2 className="md:text-5xl text-3xl font-extrabold tracking-tight pb-2 bg-linear-to-r from-cyan-400 via-teal-400 to-yellow-400 bg-clip-text text-transparent drop-shadow-md">
               Loved by teams worldwide
           </h2>
           
